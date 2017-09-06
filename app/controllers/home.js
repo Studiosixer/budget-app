@@ -11,7 +11,15 @@ export default Ember.Controller.extend({
 				amount: this.envelope_amount
 			});
 
-			envelope.save();
+			let self = this;
+
+			function clearInputs(resp) {
+				console.log(self.envelope_name);
+				Ember.set(self, "envelope_name", '');
+				Ember.set(self, "envelope_amount", '');
+			}
+
+			envelope.save().then(clearInputs);
 			
 		}
 	}
