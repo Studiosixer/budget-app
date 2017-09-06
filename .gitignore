@@ -17,4 +17,4 @@ npm-debug.log*
 testem.log
 
 # vim files
-/*.swp
+**/*.swp
