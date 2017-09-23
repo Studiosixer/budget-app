@@ -1,0 +1,22 @@
+<h2>{{title}}</h2>
+<table>
+	<th>Envelope</th>
+	<th>Remaining</th>
+	{{#each envelopes as |e|}}
+		{{#if (eq e.group_name group_name)}}
+			<tr>
+				<td>{{e.name}}</td>
+				<td>{{e.amount}}</td>
+			</tr>
+		{{/if}}
+	{{/each}}
+</table>
+<div>
+	<form>
+		{{input value=envelope_name
+			placeholder="Envelope Name"}}
+		{{input value=envelope_amount
+			enter="addEnvelope"
+			placeholder="Envelope Amount"}}
+	</form>
+</div>

@@ -1,52 +1,13 @@
 <h1>Budget App</h1>
 
-<h2>Monthly</h2>
-<table>
-	<tr>
-		<th>Envelope</th>
-		<th>Remaining</th>
-	</tr>
-	{{#each model as |envelope|}}
-	<tr>
-		<td>{{envelope.name}}</td>
-		<td>{{envelope.amount}}</td>
-	</tr>
-	{{/each}}
-</table>
-<div>
-	<form>
-		{{input value=envelope_name
-			placeholder="Envelope Name"}}
-		{{input value=envelope_amount
-			enter="addEnvelope"
-			placeholder="Envelope Amount"}}
-	</form>
-</div>
+{{envelope-group
+	title="Monthly"
+	onEnvelopeAdd=(action "userAddedEnvelope")
+	envelopes=model
+	group_name="monthly"}}
 
-<h2>Goals</h2>
-<table>
-	<tr>
-		<th>Envelope</th>
-		<th>Remaining</th>
-	</tr>
-	<tr>
-		<td>New House</td>
-		<td>1500</td>
-	</tr>
-	<tr>
-		<td>New Car</td>
-		<td>800</td>
-	</tr>
-	<tr>
-		<td>College</td>
-		<td>60</td>
-	</tr>
-	<tr>
-		<td>
-			<input type="text" name="envelope_name"/>
-		</td>
-		<td>
-			<input type="text" name="envelope_remainig"/>
-		</td>
-	</tr>
-</table>
+{{envelope-group
+	title="Goals" 
+	onEnvelopeAdd=(action "userAddedEnvelope")
+	envelopes=model
+	group_name="goals"}}
