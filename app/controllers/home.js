@@ -11,6 +11,15 @@ export default Ember.Controller.extend({
 			});
 
 			return envelope.save();
+		},
+		saveEnvelope(envelope) {
+			const envelopePromise = this.get('store').findRecord('envelope', envelope.get("id"));
+
+			envelopePromise.then((e) => {
+				e.set('name', e.get("name"))
+				e.set('amount', e.get("amount"))
+        e.save()
+			})
 		}
 	}
 });

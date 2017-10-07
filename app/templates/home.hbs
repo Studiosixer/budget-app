@@ -1,13 +1,24 @@
-<h1>Budget App</h1>
+<div class="container">
 
-{{envelope-group
-	title="Monthly"
-	onEnvelopeAdd=(action "userAddedEnvelope")
-	envelopes=model
-	group_name="monthly"}}
+	<div class="row">
+		<h1>Budget App</h1>
+	</div>
 
-{{envelope-group
-	title="Goals" 
-	onEnvelopeAdd=(action "userAddedEnvelope")
-	envelopes=model
-	group_name="goals"}}
+	<div class="row">
+		{{envelope-group
+		title="Monthly"
+		onEnvelopeAdd=(action "userAddedEnvelope")
+		envelopes=model
+		group_name="monthly"
+		saveCurrentEnvelope=(action 'saveEnvelope')}}
+	</div>
+
+	<div class="row">
+		{{envelope-group
+		title="Goals" 
+		onEnvelopeAdd=(action "userAddedEnvelope")
+		envelopes=model
+		group_name="goals"
+		saveCurrentEnvelope=(action 'saveEnvelope')}}
+	</div>
+</div>

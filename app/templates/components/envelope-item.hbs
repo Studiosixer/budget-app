@@ -1,0 +1,7 @@
+{{#if editable}}
+	<td>{{input value=envelope.name}}</td>
+	<td>{{input value=envelope.amount}} <button {{action 'saveEnvelope'}}>Save</button></td>
+{{else}}
+	<td>{{envelope.name}}</td>
+	<td>{{envelope.amount}} <button {{action "toggleEdit"}}>Edit</button></td>
+{{/if}}

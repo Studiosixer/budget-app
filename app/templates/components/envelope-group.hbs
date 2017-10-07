@@ -1,15 +1,16 @@
 <h2>{{title}}</h2>
-<table>
-	<th>Envelope</th>
-	<th>Remaining</th>
+<table class="table">
+	<thead>
+		<th>Envelope</th>
+		<th>Remaining</th>
+	</thead>
+	<tbody>
 	{{#each envelopes as |e|}}
 		{{#if (eq e.group_name group_name)}}
-			<tr>
-				<td>{{e.name}}</td>
-				<td>{{e.amount}}</td>
-			</tr>
+			{{envelope-item envelope=e onEnvelopeSave=(action saveCurrentEnvelope)}}
 		{{/if}}
 	{{/each}}
+	</tbody>
 </table>
 <div>
 	<form>
