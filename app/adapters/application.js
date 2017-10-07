@@ -1,7 +1,9 @@
 import PouchDB from 'pouchdb';
 import { Adapter } from 'ember-pouch';
+import config from '../config/environment';
 
-var remote = new PouchDB('http://127.0.0.1:5984/my_couch');
+console.log(config.APP.DB_CONN)
+var remote = new PouchDB(config.APP.DB_CONN);
 var db = new PouchDB('local_pouch');
 
 db.sync(remote, {
